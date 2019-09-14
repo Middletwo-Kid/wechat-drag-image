@@ -1,0 +1,21 @@
+<!--pages/index.wxml-->
+<view class="container">
+  <!-- textarea -->
+  <textarea placeholder="请输入点什么" placeholder-class="placeholder-class"></textarea>
+  <view class="image-drag-container">
+    <movable-area class="movable-area" style="min-height:{{imageWitdh}}px;height:{{areaHeight}}px">
+      <view class="image-choose-container">
+        <view class="image-item" style="width:{{imageWitdh}}px;height:{{imageWitdh}}px" wx:for="{{images}}" wx:for-item="url" wx:key="url" data-url="{{url}}" data-index="{{index}}" bindlongpress='handleLongTap' bindtouchend='handleTouchEnd' catchtouchmove='handleTouchMove' >
+        <image src="{{url}}" mode="aspectFill" bindtap="handlePreview" data-index="{{index}}" data-url="{{url}}"></image>
+        <view class="close" bindtap="handleDelete" data-index="{{index}}">X</view>
+      </view>
+      <view class="add-button" style="width:{{imageWitdh}}px;height:{{imageWitdh}}px" wx:if="{{images.length >= 0 &&images.length < 9}}" bindtap="handleChooseImage">+</view>
+       <view style="width:{{imageWitdh}}px" class="image-item image-item-temp" wx:if="{{images.length%3==1}}"></view>
+      </view>
+      <movable-view class="movable-view" style="width:{{imageWitdh}}px;height:{{imageWitdh}}px" hidden="{{hidden}}" x="{{x}}" y="{{y}}"  direction="all" damping="{{5000}}" friction="{{1}}">
+        <image src="{{currentImg}}" wx:if="{{currentImg.length>0}}"></image>
+      </movable-view>
+    </movable-area>
+  </view>
+  <button>发布</button>
+</view>
