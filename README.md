@@ -209,5 +209,3 @@ p.s. 当删除图片的时候，我们也需要重新计算`moveable-area`的高
 ```
 最后附上demo地址：
 https://github.com/Middletwo-Kid/wechat-drag-image <br/>
-掘金地址：
-https://juejin.im/post/5d7cbde06fb9a06b3260a25d
